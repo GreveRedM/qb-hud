@@ -71,7 +71,6 @@
                         <q-tab-panels v-model="tab" animated swipeable vertical transition-prev="jump-up" transition-next="jump-up" class="bg-active-tab">
                             <q-tab-panel name="hud">
                                 <div class="q-mb-md">
-                                    <div class="text-h6 q-mb-md">Reset Hud <img class="brand-logo" align="right" src="./kane.png"></img></div>
                                     <div class="q-pa-md q-gutter-sm">
                                         <q-btn v-on:click="resetStorage($event)" :loading="progress[0].loading" :percentage="progress[0].percentage" text-color="textbutton" color="bgbutton" @click="startComputing(0)" style="width: 150px"> Reset Settings
                                         <template v-slot:loading> <q-spinner-gears class="on-left"></q-spinner-gears> Resetting... </template></q-btn>
@@ -80,46 +79,14 @@
                                         <template v-slot:loading> <q-spinner-gears class="on-left"></q-spinner-gears> Resetting... </template></q-btn>
                                         <div class="text-h7 q-mb-md">If your hud is acting up, give it a good ol' reset! Or you can do /resethud</div>
                                     </div>
-                                    <hr>
-                                    <div class="text-h6 q-mb-md">Options</div>
+                                    <div class="text-h6 q-mb-md">Notifikasjoner</div>
                                     <div class="text-h7">
-                                        <q-item borderless tag="label" v-ripple>
-                                            <q-item-section avatar>
-                                                <q-checkbox v-model="isOutMapChecked" v-on:click="showOutMap($event)" color="checkbox" val="1"></q-checkbox>
-                                            </q-item-section>
-                                            <q-item-section>
-                                                <q-item-label>Show Minimap Only in Vehicle</q-item-label>
-                                                <q-item-label class="text-h7" caption>Disabling this will always keep your minimap on your screen</q-item-label>
-                                            </q-item-section>
-                                        </q-item>
-                                        <q-item borderless tag="label" v-ripple>
-                                            <q-item-section avatar>
-                                                <q-checkbox v-model="isOutCompassChecked" v-on:click="showOutCompass($event)" color="checkbox" val="2"></q-checkbox>
-                                            </q-item-section>
-                                            <q-item-section>
-                                                <q-item-label>Show Compass Only in Vehicle</q-item-label>
-                                                <q-item-label class="text-h7" caption>Disabling this will always keep your compass on your screen</q-item-label>
-                                            </q-item-section>
-                                        </q-item>
-                                        <q-item borderless tag="label" v-ripple>
-                                            <q-item-section avatar>
-                                                <q-checkbox v-model="isCompassFollowChecked" v-on:click="showFollowCompass($event)" color="checkbox" val="3"></q-checkbox>
-                                            </q-item-section>
-                                            <q-item-section>
-                                                <q-item-label>Show Compass Follow Cam</q-item-label>
-                                                <q-item-label class="text-h7" caption>Disabling this will make it so you can no longer use your mouse to rotate the compass around</q-item-label>
-                                            </q-item-section>
-                                        </q-item>
-                                    </div>
-                                    <hr>
-                                    <div class="text-h6 q-mb-md">Notifications</div>
-                                    <div class="text-h7">
-                                        <q-checkbox v-on:click="openMenuSounds($event)" label='Menu Sound Effects Enabled' v-model="isOpenMenuSoundsChecked" color="checkbox" val="4" style="display: flex;"></q-checkbox>
-                                        <q-checkbox v-on:click="resetHudSounds($event)" label='Reset Hud Sound Effects Enabled' v-model="isResetSoundsChecked" color="checkbox" val="5" style="display: flex;"></q-checkbox>
-                                        <q-checkbox v-on:click="checklistSounds($event)" label='GUI Sound Effects Enabled' v-model="isListSoundsChecked" color="checkbox" val="6" style="display: flex;"></q-checkbox>
-                                        <q-checkbox v-on:click="showMapNotif($event)" label='Map Notifications Enabled' v-model="isMapNotifChecked" color="checkbox" val="7" style="display: flex;"></q-checkbox>
-                                        <q-checkbox v-on:click="showFuelAlert($event)" label='Low Fuel Alert Enabled' v-model="isLowFuelChecked" color="checkbox" val="8" style="display: flex;"></q-checkbox>
-                                        <q-checkbox v-on:click="showCinematicNotif($event)" label='Cinematic Mode Notifications Enabled' v-model="isCinematicNotifChecked" color="checkbox" val="9" style="display: flex;"></q-checkbox>
+                                        <q-checkbox v-on:click="openMenuSounds($event)" label='Åpne HUD Instillinger lydeffekter' v-model="isOpenMenuSoundsChecked" color="checkbox" val="4" style="display: flex;"></q-checkbox>
+                                        <q-checkbox v-on:click="resetHudSounds($event)" label='Nullstill HUD lydeffekter' v-model="isResetSoundsChecked" color="checkbox" val="5" style="display: flex;"></q-checkbox>
+                                        <q-checkbox v-on:click="checklistSounds($event)" label='HUD Instillinger lydeffekter' v-model="isListSoundsChecked" color="checkbox" val="6" style="display: flex;"></q-checkbox>
+                                        <q-checkbox v-on:click="showMapNotif($event)" label='Kart notifikasjon lydeffekter' v-model="isMapNotifChecked" color="checkbox" val="7" style="display: flex;"></q-checkbox>
+                                        <q-checkbox v-on:click="showFuelAlert($event)" label='Lavt Drivstoff lydeffekter' v-model="isLowFuelChecked" color="checkbox" val="8" style="display: flex;"></q-checkbox>
+                                        <q-checkbox v-on:click="showCinematicNotif($event)" label='Kinomodus lydeffekter' v-model="isCinematicNotifChecked" color="checkbox" val="9" style="display: flex;"></q-checkbox>
                                     </div>
                                 </div>
                                 <hr>
